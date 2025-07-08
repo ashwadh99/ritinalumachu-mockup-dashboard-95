@@ -64,13 +64,13 @@ const ErrorTypeChart = () => {
             <Info className="w-4 h-4 text-gray-400" />
           </CardHeader>
           <CardContent>
-            <div className="h-80">
+            <div className="h-80 relative">
               <ResponsiveContainer width="100%" height="100%">
                 <PieChart>
                   <Pie
                     data={errorTypeData}
                     cx="50%"
-                    cy="45%"
+                    cy="50%"
                     outerRadius={80}
                     dataKey="count"
                     stroke="none"
@@ -82,11 +82,11 @@ const ErrorTypeChart = () => {
                   <Tooltip content={<PieTooltip />} />
                 </PieChart>
               </ResponsiveContainer>
-              <div className="flex flex-wrap justify-center gap-4 mt-4">
+              <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex flex-wrap justify-center gap-3">
                 {errorTypeData.map((item, index) => (
-                  <div key={index} className="flex items-center space-x-2">
-                    <div className={`w-3 h-3 rounded-full`} style={{ backgroundColor: item.color }}></div>
-                    <span className="text-sm font-medium text-gray-700">{item.name}</span>
+                  <div key={index} className="flex items-center space-x-1">
+                    <div className={`w-2 h-2 rounded-full`} style={{ backgroundColor: item.color }}></div>
+                    <span className="text-xs font-medium text-gray-700">{item.name}</span>
                   </div>
                 ))}
               </div>
